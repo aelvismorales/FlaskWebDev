@@ -4,26 +4,81 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-.message-alert {
+.alert {
     width: 60%;
-    background-color: rgb(240, 240, 93);
-    margin: 20px auto;
-}
-
-.message-alert .alert {
+    background-color: white;
     display: flex;
+    margin: 20px auto;
+    padding-left: 10px;
     justify-content: space-between;
+    align-items: center;
+    border-radius: 5px;
+
 }
 
-.message-alert .alert button {
+
+
+.alert button {
     border: none;
     background-color: transparent;
+    color: white;
     font-size: 25px;
 }
 
-.message-alert .alert button:hover {
+.alert button:hover {
     cursor: pointer;
 }
+
+.alert.error {
+    background-color: rgb(255, 62, 41);
+}
+
+.alert.info {
+    background-color: rgb(255, 237, 41);
+}
+
+.alert.success {
+    background-color: rgb(41, 255, 91);
+}
+
+.navTop {
+    display: flex;
+    align-items: center;
+    background-color: rgb(0, 165, 231);
+    width: 100vw;
+    height: 80px;
+}
+
+.navTop .logo {
+    width: 10vw;
+    height: 100%;
+    /* border: solid 2px red; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navTop .nav-items {
+    display: flex;
+    width: 90vw;
+    list-style: none;
+    justify-content: space-between;
+    margin: 15px 15px;
+
+}
+
+.navTop .nav-items a {
+    text-decoration: none;
+    text-transform: uppercase;
+    color: white;
+}
+
+.navTop .nav-items a:hover {
+    cursor: pointer;
+    color: rgb(218, 218, 218);
+}
+
+
 
 .container {
     margin: 150px auto;
@@ -55,6 +110,11 @@ body {
     font-size: 20px;
     padding-left: 10px;
     color: #eee;
+}
+
+h2 {
+    text-align: center;
+    font-size: 40px;
 }
 
 

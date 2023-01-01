@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../static/css/createAccount.css" />
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+    <nav class="navTop">
+        <div class="logo"> LOGO </div>
+        <ul class="nav-items">
+            {% block navItems %}
+            {% endblock %}
+        </ul>
+    </nav>
+    {% with messages=get_flashed_messages(with_categories=true) %}
+        {% if messages %} 
+            {% for category,message in messages %} 
+                {% if category=='error' %} 
+                    <div class="alert error">
+                        <p>{{message}}</p>
+                        <button type="button" class="btn-close" aria-label="Close">&times;</button>
+                    </div>
+                {% elif category=='info' %}
+                    <div class="alert info">
+                        {{message}}
+                        <button type="button" class="btn-close" aria-label="Close">&times;</button>
+                    </div>
+                {% else %} 
+                    <div class="alert success">
+                        {{message}}
+                        <button type="button" class="btn-close" aria-label="Close">&times;</button>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    
+    {% block content %}
+    
+    {% endblock %}
+
+    <script src="../static/js/alertJs.js"></script>
+</body>
+</html>

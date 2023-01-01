@@ -1,25 +1,36 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../static/css/createAccount.css" />
-    <title>Crear cuenta</title>
-  </head>
-  <body>
-    <div class="container">
-      <div class="form">
-        <div class="form-data">
-          <form action="#" method="post">
-            {{ form.csrf_token }}
-            {{form.name.label}}{{form.name(class='nameTxt')}}
-            {{form.password.label}}{{form.password(class='passwordTxt')}}
-            {{form.email.label}}{{form.email(class='emailTxt')}}
-            {{form.submit(class='submitInp')}}
-          </form>
-        </div>
+{% extends 'base.html' %}
+<!-- Tittle Block-->
+{% block title %}
+  Login Page
+{% endblock %}
+<!-- End Tittle Block-->
+{% block navItems %}
+<!-- Nav Bar Items Block-->
+  <li class="itemNav"><a href="{{url_for('auth.create')}}"> Create</a></li>
+  {% if current_user.is_authenticated %}
+  <li class="itemNav"><a href="{{url_for('auth.logout')}}">Log Out</a></li>
+  {% else %}
+  <li class="itemNav"><a href="{{url_for('auth.login')}}">Login</a></li>
+  {% endif %}
+<!-- End Nav Bar Block-->
+{% endblock %}
+
+<!-- Content Block-->
+{% block content %}
+  <div class="container">
+    <div class="form">
+      <div class="form-data">
+        <h2> Welcome to the create and account on the Web!</h2>
+        <form action="#" method="post">
+          {{ form.csrf_token }}
+          {{form.name.label}}{{form.name(class='nameTxt')}}
+          {{form.password.label}}{{form.password(class='passwordTxt')}}
+          {{form.email.label}}{{form.email(class='emailTxt')}}
+          {{form.rol.label}}{{form.rol(class="rolSelect")}}
+          {{form.submit(class='submitInp')}}
+        </form>
       </div>
     </div>
-  </body>
-</html>
+  </div>
+{% endblock %}
+<!-- End Content Block-->

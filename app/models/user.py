@@ -38,3 +38,6 @@ class Roles(db.Model):
     id=db.Column(db.Integer,primary_key=True)
     name=db.Column(db.String(200),nullable=False)
     users=db.relationship('User',backref='role')
+
+    def __init__(self, name):
+        self.name=name

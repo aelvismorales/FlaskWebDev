@@ -1,0 +1,19 @@
+{% extends 'base.html' %} 
+{% block title %} Index {% endblock %} 
+
+{% block navItems %}
+<!-- Nav Bar Items Block-->
+  <li class="itemNav"><a href="{{url_for('auth.create')}}"> Create</a></li>
+  {% if current_user.is_authenticated %}
+  <li class="itemNav"><a href="{{url_for('auth.logout')}}">Log Out</a></li>
+  {% else %}
+  <li class="itemNav"><a href="{{url_for('auth.login')}}">Login</a></li>
+  {% endif %}
+<!-- End Nav Bar Block-->
+{% endblock %}
+
+{% block content %} 
+    <h2>
+        Welcome {% if current_user.is_authenticated %} {{current_user.username}} {% else %} Stranger {% endif %}!
+    </h2>
+{% endblock %}
